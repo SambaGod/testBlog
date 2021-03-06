@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <title>Laravel Social Project</title>
 </head>
-<body>
+<body class="bg-gray-100">
     This is Laravel Home Page
 </body>
 </html>
