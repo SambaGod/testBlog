@@ -24,3 +24,11 @@
 
 - larvel-mix (npm run dev) -> pull tailwind
 - webpack.mix.js -> takes care of css and js
+
+**Database**
+
+- Laravel will by default migrate three pre-defined tables
+- We are using postgres for this project
+- configure .env and run php artisan migrate
+- To add a new column to existing database -> php artisan make:migration add_username_to_users. It will automatically generate a file
+- php artisan migrate:rollback -> rollback changes made to db
