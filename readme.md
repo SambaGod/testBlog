@@ -32,3 +32,14 @@
 - configure .env and run php artisan migrate
 - To add a new column to existing database -> php artisan make:migration add_username_to_users. It will automatically generate a file
 - php artisan migrate:rollback -> rollback changes made to db
+
+**Models/Controllers**
+
+- Writing writes individually could be quite hactic, therefore, controllers are used instead
+- php artisan make:controller _NameController_ OR if in a new directory, Directory\\_NameController_
+- @csrf -> cross-site request forgery is used to provide a fake token that makes it possible to submit forms in dev environment
+- Validation rules ($this->validate()) are available in Laravel documentation. Rules can be string based or an array.
+- In repeat password, name must be name_confirmation so laravel can confirm for match later on.
+- @error | @enderror -> error handling -> available in documentation
+- For in-line error handling, twig syntax is not required
+- old() is used to output something on the page
