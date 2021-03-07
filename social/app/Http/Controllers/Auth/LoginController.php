@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+    // Do not access if already logged in
+    public function __construct()
+    {
+        $this->middleware(['guest']);
+    }
+
     // Show the form
     public function index(){
         return view('auth.login');

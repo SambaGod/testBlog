@@ -9,6 +9,12 @@ use App\Models\User;
 
 class RegisterController extends Controller
 {
+    // Do not access if already logged in
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+    // Return View Regisgter
     public function index(){
         return view('auth.register');
     }

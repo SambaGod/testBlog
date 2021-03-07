@@ -50,3 +50,7 @@
 - Insteadf of @if @else @endif, @auth @endauth @guest @endguest could be used
 - with() will flash a message to the session
 - Using route('logout') directly is a security risk, therefore we use form instead.
+
+**Middleware**
+
+- Middlewares can be added to the route file directly, or within the controller

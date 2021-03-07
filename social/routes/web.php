@@ -23,7 +23,9 @@ Route::post('/login', [LoginController::Class, 'signin']);
 Route::post('/logout', [LogoutController::Class, 'logout'])->name('logout');
 
 // Route for Dashboard
-Route::get('/dashboard', [DashboardController::Class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::Class, 'index'])
+->name('dashboard')
+->middleware('auth');
 
 // Route for posts
 Route::get('/posts', function () {
