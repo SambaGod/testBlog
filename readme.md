@@ -74,3 +74,9 @@
 **Shortcuts**
 
 - `latest()` = `orderBy('created_at', 'desc')`
+
+**Policies**
+
+- `php artisan make:policy NamePolicy`
+- AuthServiceProvider -> Hook class with the policy
+- Once set up, use @can('method') and @endcan for inline authentication

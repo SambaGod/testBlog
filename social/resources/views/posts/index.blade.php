@@ -48,14 +48,13 @@
                         </p>
 
                         {{-- Delete Button --}}
-                        @if($post->ownedBy(auth()->user()))
+                        @can('delete', $post)
                             <form action="{{route('posts.destroy', $post)}}" method="POST" class="mr-1">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-red-500">Delete</button>
                             </form>
-                        @endif
-
+                        @endcan
                         {{-- Like/unlike button --}}
                         <div class="flex items-center">
                             @auth
