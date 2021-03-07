@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostLikeController;
 
 // Route for Home Page
 Route::get('/', function(){
@@ -13,21 +14,26 @@ Route::get('/', function(){
 })->name('home');
 
 // Route for Register
-Route::get('/register', [RegisterController::Class, 'index'])->name('register'); // where ever this name() is called, this route will respond
-Route::post('/register', [RegisterController::Class, 'store']); // It will ingerit name() from top
+Route::get('/register', [RegisterController::class, 'index'])->name('register'); // where ever this name() is called, this route will respond
+Route::post('/register', [RegisterController::class, 'store']); // It will ingerit name() from top
 
 // Route for Login
-Route::get('/login', [LoginController::Class, 'index'])->name('login');
-Route::post('/login', [LoginController::Class, 'signin']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'signin']);
 
 // Route for Logout
-Route::post('/logout', [LogoutController::Class, 'logout'])->name('logout');
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 // Route for Dashboard
-Route::get('/dashboard', [DashboardController::Class, 'index'])
+Route::get('/dashboard', [DashboardController::class, 'index'])
 ->name('dashboard')
 ->middleware('auth');
 
 // Route for posts
-Route::get('/posts',[PostController::Class, 'index'])->name('posts');
-Route::post('/posts',[PostController::Class, 'store']);
+Route::get('/posts',[PostController::class, 'index'])->name('posts'); // Get them
+Route::post('/posts',[PostController::class, 'store']); // Store them
+Route::delete('/posts/{post}',[PostController::class, 'destroy'])->name('posts.destroy'); // Delete them
+
+// Route for post likes
+Route::post('/posts/{post}/likes',[PostLikeController::class, 'store'])->name('posts.likes'); // Single {} for post (name of the model)!
+Route::delete('/posts/{post}/likes',[PostLikeController::class, 'destroy']);

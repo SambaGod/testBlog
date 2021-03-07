@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     // Return View Posts
     public function index(){
-        $posts = Post::paginate(5); // Return posts collection
+        $posts = Post::latest()->with(['user','likes'])->paginate(5); // Return posts collection
         return view('posts.index', [
             'posts' => $posts, // Pass all posts down to index view
         ]);
@@ -25,5 +25,17 @@ class PostController extends Controller
         auth()->user()->posts()->create($request->only('body')); // For multiple entries, use array instead of only(). Laravel will automatically add user_id
 
         return back(); 
+    }
+
+    // Delete Post
+    public function destroy(Post $post){
+
+        if(!$post->ownedBy(auth()->user())){
+            dd("no can't do");
+        }
+
+        $post->delete();
+
+        return back();
     }
 }

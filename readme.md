@@ -33,6 +33,7 @@
 - To add a new column to existing database -> php artisan make:migration add_username_to_users. It will automatically generate a file
 - php artisan migrate:rollback -> rollback changes made to db
 - now() function will insert current date and time
+- php artisan create:migration create_name_table
 
 **Models/Controllers**
 
@@ -61,3 +62,15 @@
 **Tinker**
 
 - `App\Models\Post::factory()->times(200)->create(['user_id'=>3]);`
+
+**Like/Unlike Posts**
+
+- setup relationships in User, Post and Like models
+
+**Laravel Debugbar**
+
+- `composer require barryvdh/laravel-debugbar --dev`
+
+**Shortcuts**
+
+- `latest()` = `orderBy('created_at', 'desc')`
