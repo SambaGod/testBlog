@@ -32,6 +32,7 @@
 - configure .env and run php artisan migrate
 - To add a new column to existing database -> php artisan make:migration add_username_to_users. It will automatically generate a file
 - php artisan migrate:rollback -> rollback changes made to db
+- now() function will insert current date and time
 
 **Models/Controllers**
 
@@ -43,6 +44,7 @@
 - @error | @enderror -> error handling -> available in documentation
 - For in-line error handling, twig syntax is not required
 - old() is used to output something on the page
+- Create models, migrations (-m) and factories (-f) together -> php artisan make:model Name -m -f
 
 **User Authentication**
 

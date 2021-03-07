@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostController;
 
 // Route for Home Page
 Route::get('/', function(){
@@ -28,6 +29,5 @@ Route::get('/dashboard', [DashboardController::Class, 'index'])
 ->middleware('auth');
 
 // Route for posts
-Route::get('/posts', function () {
-    return view('posts.index');
-})->name('posts');
+Route::get('/posts',[PostController::Class, 'index'])->name('posts');
+Route::post('/posts',[PostController::Class, 'store']);
