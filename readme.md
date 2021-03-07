@@ -50,6 +50,7 @@
 - Insteadf of @if @else @endif, @auth @endauth @guest @endguest could be used
 - with() will flash a message to the session
 - Using route('logout') directly is a security risk, therefore we use form instead.
+- Simply passing $request->remember argument will remember the user token.
 
 **Middleware**
 
