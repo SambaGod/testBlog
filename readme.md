@@ -57,3 +57,7 @@
 **Middleware**
 
 - Middlewares can be added to the route file directly, or within the controller
+
+**Tinker**
+
+- `App\Models\Post::factory()->times(200)->create(['user_id'=>3]);`
