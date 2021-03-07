@@ -43,3 +43,10 @@
 - @error | @enderror -> error handling -> available in documentation
 - For in-line error handling, twig syntax is not required
 - old() is used to output something on the page
+
+**User Authentication**
+
+- auth()->user() or auth()->check() are the same
+- Insteadf of @if @else @endif, @auth @endauth @guest @endguest could be used
+- with() will flash a message to the session
+- Using route('logout') directly is a security risk, therefore we use form instead.
