@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\UserPostController;
 
 // Route for Home Page
 Route::get('/', function(){
@@ -37,3 +38,10 @@ Route::delete('/posts/{post}',[PostController::class, 'destroy'])->name('posts.d
 // Route for post likes
 Route::post('/posts/{post}/likes',[PostLikeController::class, 'store'])->name('posts.likes'); // Single {} for post (name of the model)!
 Route::delete('/posts/{post}/likes',[PostLikeController::class, 'destroy']);
+
+// Route for single post page
+Route::get('/posts/{post}',[PostController::class, 'show'])->name('posts.show');
+
+// Route for user posts page
+Route::get('/users/{user:username}/posts',[UserPostController::class, 'index'])->name('users.posts');
+ 
